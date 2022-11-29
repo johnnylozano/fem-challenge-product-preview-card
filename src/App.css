@@ -1,5 +1,6 @@
 :root {
    --clr-primary-400: hsl(158, 36%, 37%);
+   --clr-primary-500: hsl(158, 36%, 20%);
    --clr-secondary-200: hsl(30, 38%, 92%);
 
    --clr-neutral-900: hsl(212, 21%, 14%);
@@ -40,7 +41,7 @@ body {
   5. Improve text rendering
 */
 body {
-   line-height: 1.5;
+   line-height: 1.7;
    -webkit-font-smoothing: antialiased;
 }
 /*
@@ -81,4 +82,111 @@ h6 {
 #root,
 #__next {
    isolation: isolate;
+}
+
+/* === BASE === */
+
+body {
+   font-family: var(--ff-body);
+   font-weight: var(--fw-regular);
+   font-size: 0.875rem;
+   color: var(--clr-neutral-400);
+   background-color: var(--clr-secondary-200);
+
+   display: grid;
+   place-content: center;
+   margin: 1rem;
+}
+
+/* === BUTTON === */
+.btn {
+   cursor: pointer;
+   text-decoration: none;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.75em 1.5em;
+   border: 0;
+   border-radius: 0.5rem;
+   background-color: var(--clr-primary-400);
+   color: var(--clr-neutral-100);
+   font-weight: var(--fw-bold);
+   font-size: 0.925rem;
+}
+
+.btn[dataIcon='shopping-cart']::before {
+   content: '';
+   background-image: url('./assets/svg/icon-cart.svg');
+   width: 15px;
+   height: 16px;
+}
+
+.btn:is(:hover, :focus) {
+   background-color: var(--clr-primary-500);
+}
+
+/* === UTILITY === */
+
+.flex-group {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+   align-items: center;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+}
+
+/* === PRODUCT CARD === */
+
+.product__card {
+   display: grid;
+   background-color: var(--clr-neutral-100);
+   border-radius: 0.5rem;
+   overflow: hidden;
+   max-width: 600px;
+}
+
+.product__content {
+   padding: 1.5rem;
+   display: grid;
+   gap: 1rem;
+}
+
+.product__category {
+   font-size: 0.8125rem;
+   text-transform: uppercase;
+   letter-spacing: 5px;
+}
+
+.product__title {
+   font-style: 2rem;
+   font-family: var(--ff-accent);
+   color: var(--clr-neutral-900);
+   line-height: 1;
+}
+
+.product__sale-price {
+   font-size: 2rem;
+   font-family: var(--ff-accent);
+   color: var(--clr-primary-400);
+}
+
+/* === MEDIA QUERIES === */
+@media (min-width: 600px) {
+   .product__card {
+      grid-template-columns: 1fr 1fr;
+   }
+
+   .product__content {
+      padding: 2rem;
+   }
 }
