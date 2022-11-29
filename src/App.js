@@ -6,6 +6,10 @@ function App() {
          <main>
             <article className="product__card">
                <picture className="product__img">
+                  <source
+                     srcSet={require('./assets/img/image-product-desktop.jpg')}
+                     media="(min-width: 600px)"
+                  />
                   <img
                      src={require('./assets/img/image-product-mobile.jpg')}
                      alt="Gabrielle Essence perfume bottle laying on a table"
@@ -25,11 +29,19 @@ function App() {
                   </p>
 
                   <div className="flex-group">
-                     <p className="product__sale-price">$149.99 </p>
-                     <p className="product__whole-price">$169.99 </p>
+                     <p className="product__sale-price">
+                        <span className="visually-hidden">On sale for:</span>
+                        $149.99
+                     </p>
+                     <p className="product__whole-price">
+                        <span className="visually-hidden">Original price:</span>
+                        <s>$169.99</s>
+                     </p>
                   </div>
 
-                  <button className="btn">Add to Cart</button>
+                  <button className="btn" dataIcon="shopping-cart">
+                     Add to Cart
+                  </button>
                </div>
             </article>
          </main>
