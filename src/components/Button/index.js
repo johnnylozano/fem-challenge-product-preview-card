@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { ShoppingIcon } from '../ShoppingIcon';
 import { Btn } from './styles';
 
