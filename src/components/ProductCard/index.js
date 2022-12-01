@@ -13,7 +13,6 @@ import {
 export const ProductCard = ({
    imgLg,
    imgSm,
-   alt,
    productCategory,
    productTitle,
    description,
@@ -24,7 +23,10 @@ export const ProductCard = ({
       <CardContainer>
          <picture className="product__img">
             <source srcSet={imgLg} media="(min-width: 600px)" />
-            <img src={imgSm} alt={alt} />
+            <img
+               src={imgSm}
+               alt="Gabrielle Essence perfume bottle laying on a table"
+            />
          </picture>
 
          <ProductContent>
